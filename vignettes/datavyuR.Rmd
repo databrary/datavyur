@@ -1,0 +1,64 @@
+---
+title: "datavyuR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{datavyuR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(datavyuR)
+```
+
+## About
+
+Datavyu (<https://datavyu.org>) is a free, open-source, desktop tool for annotating video files.
+
+Datavyu files have an extension of `.opf`, but under-the-hood, Datavyu files are ASCII text in a zip-file wrapper.
+This makes them easy to decode and manipulate outside of the application.
+
+Datavyu is closely associated with Databrary (<https://databrary.org>), a web-based data library specialized for storing and sharing research video.
+But Datavyu can and is regularly used by researchers who do not use Databrary.
+
+## Getting started
+
+You do not need to download and install the Datavyu desktop application to use the `datavyuR` package.
+But this vignette uses the `databraryr` package to download a publicly shared Datavyu file and its accompanying video.
+The `databraryr` package is currently available on GitHub (<https://github.com/databrary/datavyuR>).
+If you do not have it installed, install `devtools` with `install.packages('devtools)`, and then install `databraryr` with `devtools::install_github('databraryr')`.
+
+Once that is done, we can download a sample Datavyu spreadsheet from <https://databrary/volume/1>.
+
+<!-- TODO(ROG/JS): How to use temporary directories and file names? -->
+
+```{r, eval=FALSE}
+if (!dir.exists("tmp")) dir.create("tmp")
+databraryr::download_datavyu()
+```
+
+The `databraryr::download_datavyu()` creates a long name for this file.
+The reason is that Datavyu files do not (yet) contain (much) robust information about which video or audio file they are linked to.
+Nor do Datavyu files contain information about where the files came from on Databrary.
+So, the file name contains the Databrary-unique volume ID, the session (folder) ID, and the asset (file) ID, plus a date/time stamp to make each download unique.
+None of this Databrary-specific metadata matters to us if we won't be using the `datavyuR` package to interact with files that aren't stored on Databrary.
+
+To get meaningful information out of the Datavyu file, we need to extract it into its three component parts.
+
+```{r, eval=FALSE}
+extract_dv("tmp")
+```
+
+We see that there are three new files with names `1`, `db`, and `project`.
+
+`1` contains information about the video file associated with the Datavyu file.
+`project` contains metadata about the Datavyu coding sheet and where the original video file used to generate the coding spreadsheet came from.
+`db` contains the actual time-locked codes.
+
