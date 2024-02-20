@@ -1,4 +1,4 @@
-#' Convert an extracted Datavyu file to CSV.
+#' Convert Extracted Datavyu File To CSV.
 #'
 #' @param dv_dir Directory to extracted Datavyu file.
 #' @param dv_fn Datavyu code file. Defaults to 'db'.
@@ -56,7 +56,7 @@ to_csv <- function(dv_dir = ".", dv_fn = "db",
   }
   dv <- readLines(con_in)
   close(con_in)
-  if (vb) message(paste0(length(dv), " lines read from file ", dv_fn))
+  if (vb) message(paste0(length(dv), " lines read from file '", dv_fn, "'."))
 
   # Write output file---------------------------------------------------------------------
   opf_files <- list.files(dv_dir, pattern = "\\.opf$")

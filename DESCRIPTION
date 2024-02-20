@@ -1,4 +1,4 @@
-Package: datavyuR
+Package: datavyur
 Title: Manipulate Datavyu Files
 Version: 0.0.0.9000
 Authors@R: 
@@ -12,6 +12,7 @@ RoxygenNote: 7.2.3
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    databraryr
 Config/testthat/edition: 3
 VignetteBuilder: knitr
