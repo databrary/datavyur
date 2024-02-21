@@ -46,9 +46,12 @@ download_opf <- function(session_id = 9807,
     } else {
       if (vb) message("Saving file to existing directory ", full_dir)
     }
+    file_name <- file.path(full_dir, paste0(asset_id, ".opf"))
+  } else {
+    full_dir <- dirname(file_name)
   }
-  file_name <- file.path(full_dir, paste0(asset_id, ".opf"))
   assertthat::is.string(file_name)
+  assertthat::is.string(full_dir)
   
   assertthat::assert_that(is.logical(vb))
   assertthat::assert_that(length(vb) == 1)

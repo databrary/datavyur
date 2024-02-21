@@ -13,7 +13,8 @@ Imports:
     lubridate,
     databraryr,
     assertthat,
-    stringr
+    stringr,
+    magrittr
 Suggests: 
     knitr,
     rmarkdown,

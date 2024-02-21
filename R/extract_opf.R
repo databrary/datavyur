@@ -18,7 +18,7 @@
 #' 
 #' @export
 extract_opf <- function(in_fn = NULL,
-                        out_dir = dirname(in_fn),
+                        out_dir = tempdir(),
                         create_dir = FALSE,
                         auto_write_over = TRUE,
                         vb = FALSE) {
@@ -36,7 +36,9 @@ extract_opf <- function(in_fn = NULL,
     if (create_dir) {
       if (vb)
         message(paste0("Creating directory ", out_dir, "."))
-      dir.create(out_dir)      
+      dir.create(out_dir)
+      if (vb) message("Copying file to new output directory.")
+      file.copy(from = in_fn, to = file.path(out_dir, basename(in_fn)))
     } else {
       if (vb) message("Unable to create output directory.")
      return(NULL) 
@@ -49,6 +51,14 @@ extract_opf <- function(in_fn = NULL,
   
   assertthat::assert_that(is.logical(vb))
   assertthat::assert_that(length(vb) == 1)
+  
+  if (!file.exists(file.path(out_dir, basename(in_fn)))) {
+    if (vb) {
+      message("File ", basename(in_fn), " not found in ", out_dir)
+      message("Copying file.")
+    }
+    file.copy(from = in_fn, to = file.path(out_dir, basename(in_fn)))
+  }
 
   # Extract file and return ----------------------------------------------------
   # Note: Raw .opf file is actually a zip file.

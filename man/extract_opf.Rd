@@ -6,7 +6,7 @@
 \usage{
 extract_opf(
   in_fn = NULL,
-  out_dir = dirname(in_fn),
+  out_dir = tempdir(),
   create_dir = FALSE,
   auto_write_over = TRUE,
   vb = FALSE

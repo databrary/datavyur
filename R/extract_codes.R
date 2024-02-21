@@ -1,14 +1,17 @@
 #' Extract Codes From a Datavyu file.
 #'
-#' @param in_dir Input directory. Defaults to '.'
-#' @param dv_fn Full Datavyu file name. Defaults to 'db'
-#' @param out_dir Output directory. Defaults to in_dir
-#' @param out_fn Full output file name.
-#' @param auto_write_over A Boolean value. If TRUE, new output file overwrites old.
-#' @param code_regex A string specifying the regular expression to extract a code.
-#' @param code_vals_regex A string specifying the regular expression to extract a code value.
-#' @param code_type_regex A string specifying the regular expression for the code type.
-#' @param vb A boolean value. If TRUE, provides verbose output.
+#' @param in_dir A character string. Input directory. Defaults to '.'
+#' @param dv_fn A character string. Full Datavyu file name. Defaults to 'db'
+#' @param out_dir A character string. Output directory. Defaults to `in_dir`.
+#' @param out_fn A character string. Full output file name.
+#' @param auto_write_over A logical value. If TRUE, new output file overwrites old.
+#' @param code_regex A character string. Specifies the regular expression 
+#' to extract a code.
+#' @param code_vals_regex A character string. Specifies the regular expression 
+#' to extract a code value.
+#' @param code_type_regex A character string. Specifies the regular expression 
+#' for the code type.
+#' @param vb A logical value. If TRUE, provides verbose output.
 #' 
 #' @examples
 #' \donttest{

@@ -17,23 +17,26 @@ extract_codes(
 )
 }
 \arguments{
-\item{in_dir}{Input directory. Defaults to '.'}
+\item{in_dir}{A character string. Input directory. Defaults to '.'}
 
-\item{dv_fn}{Full Datavyu file name. Defaults to 'db'}
+\item{dv_fn}{A character string. Full Datavyu file name. Defaults to 'db'}
 
-\item{out_dir}{Output directory. Defaults to in_dir}
+\item{out_dir}{A character string. Output directory. Defaults to \code{in_dir}.}
 
-\item{out_fn}{Full output file name.}
+\item{out_fn}{A character string. Full output file name.}
 
-\item{auto_write_over}{A Boolean value. If TRUE, new output file overwrites old.}
+\item{auto_write_over}{A logical value. If TRUE, new output file overwrites old.}
 
-\item{code_regex}{A string specifying the regular expression to extract a code.}
+\item{code_regex}{A character string. Specifies the regular expression
+to extract a code.}
 
-\item{code_vals_regex}{A string specifying the regular expression to extract a code value.}
+\item{code_vals_regex}{A character string. Specifies the regular expression
+to extract a code value.}
 
-\item{code_type_regex}{A string specifying the regular expression for the code type.}
+\item{code_type_regex}{A character string. Specifies the regular expression
+for the code type.}
 
-\item{vb}{A boolean value. If TRUE, provides verbose output.}
+\item{vb}{A logical value. If TRUE, provides verbose output.}
 }
 \description{
 Extract Codes From a Datavyu file.
