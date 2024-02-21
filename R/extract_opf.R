@@ -1,6 +1,5 @@
 #' Extracts Elements From Datavyu coding file.
 #'
-
 #' @param in_fn A character string string. The full file name for the Datavyu 
 #' file. Default is NULL.
 #' @param out_dir A character string. Output directory to save exported files.
@@ -13,7 +12,9 @@
 #' 
 #' @examples
 #' \donttest{
+#' \dontrun{
 #' extract_opf()
+#' }
 #' }
 #' 
 #' @export

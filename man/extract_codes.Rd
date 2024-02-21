@@ -38,12 +38,17 @@ for the code type.}
 
 \item{vb}{A logical value. If TRUE, provides verbose output.}
 }
+\value{
+A character string with the name of the saved output file.
+}
 \description{
 Extract Codes From a Datavyu file.
 }
 \examples{
 \donttest{
+\dontrun{
 extract_codes()
+}
 }
 
 }

@@ -33,7 +33,9 @@ Extracts Elements From Datavyu coding file.
 }
 \examples{
 \donttest{
+\dontrun{
 extract_opf()
+}
 }
 
 }

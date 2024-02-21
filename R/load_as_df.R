@@ -1,6 +1,6 @@
 #' Load A Raw Datavyu File as a Data Frame
 #'
-#' @param df_fn A character string. The full file name for the Datavyu file to
+#' @param dv_fn A character string. The full file name for the Datavyu file to
 #' load. Default is the value returned by `datavyur_example()`.
 #' @param vb A logical value. Show verbose output. Default is FALSE.
 #'

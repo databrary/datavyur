@@ -5,7 +5,7 @@
 \title{Convert Extracted Datavyu File To CSV.}
 \usage{
 to_csv(
-  dv_dir = ".",
+  dv_dir = NULL,
   dv_fn = "db",
   out_fn = paste0(dv_dir, "/tmp.csv"),
   auto_write_over = FALSE,
@@ -19,7 +19,7 @@ to_csv(
 }
 \arguments{
 \item{dv_dir}{A character string. The directory to extract the Datavyu file.
-Default value is the current directory ".".}
+Default value NULL. This forces the user to specify a directory.}
 
 \item{dv_fn}{A character string. The name of the Datavyu code file.
 Defaults to 'db'.}

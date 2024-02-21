@@ -7,10 +7,10 @@
 load_as_df(dv_fn = datavyur_example(), vb = FALSE)
 }
 \arguments{
-\item{vb}{A logical value. Show verbose output. Default is FALSE.}
-
-\item{df_fn}{A character string. The full file name for the Datavyu file to
+\item{dv_fn}{A character string. The full file name for the Datavyu file to
 load. Default is the value returned by \code{datavyur_example()}.}
+
+\item{vb}{A logical value. Show verbose output. Default is FALSE.}
 }
 \description{
 Load A Raw Datavyu File as a Data Frame

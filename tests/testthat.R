@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(datavyuR)
+library(datavyur)
 
-test_check("datavyuR")
+test_check("datavyur")

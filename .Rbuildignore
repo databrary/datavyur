@@ -1,2 +1,7 @@
 ^datavyuR\.Rproj$
 ^\.Rproj\.user$
+^docs$
+^pkgdown$
+^_wip
+^README.Rmd$
+^\.github$

@@ -1,7 +1,7 @@
 #' Convert Extracted Datavyu File To CSV.
 #'
 #' @param dv_dir A character string. The directory to extract the Datavyu file.
-#' Default value is the current directory ".".
+#' Default value NULL. This forces the user to specify a directory.
 #' @param dv_fn A character string. The name of the Datavyu code file.
 #' Defaults to 'db'.
 #' @param out_fn A character string. The name of the output CSV file. Default
@@ -27,7 +27,7 @@
 #' }
 #'
 #' @export
-to_csv <- function(dv_dir = ".",
+to_csv <- function(dv_dir = NULL,
                    dv_fn = "db",
                    out_fn = paste0(dv_dir, "/tmp.csv"),
                    auto_write_over = FALSE,
@@ -69,21 +69,6 @@ to_csv <- function(dv_dir = ".",
   assertthat::assert_that(is.logical(vb))
   assertthat::assert_that(length(vb) == 1)
   
-  if (!is.character(dv_dir)) {
-    stop("Datavyu directory must be a string.")
-  }
-  if (!dir.exists(dv_dir)) {
-    stop(paste0("Directory ", dv_dir, " not found.\n"))
-  }
-  if (!is.character(dv_fn)) {
-    stop("Datavyu file name must be a string.")
-  }
-  if (!is.character(out_fn)) {
-    stop("Output file name must be a string.")
-  }
-  if (!is.logical(auto_write_over)) {
-    stop("auto_write_over must be a logical/Boolean value.")
-  }
   if (file.exists(paste0(dv_dir, "/", out_fn))) {
     if (!auto_write_over) {
       replace.out <-
@@ -96,15 +81,15 @@ to_csv <- function(dv_dir = ".",
   }
   
   # Open Datavyu file and read------------------------------------------------------------
+  dv_full_fn <- file.path(dv_dir, dv_fn)
+  assertthat::is.readable(dv_full_fn)
   con_in <- file(paste0(dv_dir, "/", dv_fn), "r")
   if (con_in == FALSE) {
     if (vb) message("Unable to open file ", dv_fn)
     return(NULL)
   }
-
   dv <- readLines(con_in)
   close(con_in)
-  
   if (vb)
     message(paste0(length(dv), " lines read from file '", dv_fn, "'."))
   
@@ -119,6 +104,7 @@ to_csv <- function(dv_dir = ".",
     out_fn <-
       paste0(dv_dir, "/", tools::file_path_sans_ext(basename(opf_files)), ".csv")
   }
+  assertthat::is.writeable(out_fn)
   con_out <- file(out_fn, "w")
   if (!con_out) {
     stop(paste0("Unable to open file: ", out_fn))
