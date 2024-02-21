@@ -6,3 +6,4 @@ inst/doc
 datavyuR.Rproj
 *.opf
 _wip/
+.DS_Store

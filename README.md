@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# datavyur <a href="https://databrary.github.io/datavyur"></a>
+# datavyur <a href="https://databrary.github.io/datavyur"><img src="man/figures/logo.png" align="right" height="138" /></a>
 
 <!-- badges: start -->
 <!-- [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/databraryr)](https://cran.r-project.org/package=databraryr) -->
