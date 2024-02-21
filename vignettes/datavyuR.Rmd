@@ -1,8 +1,8 @@
 ---
-title: "datavyuR"
+title: "datavyur"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{datavyuR}
+  %\VignetteIndexEntry{datavyur}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(datavyuR)
+library(datavyur)
 ```
 
 ## About
@@ -40,11 +40,10 @@ Once that is done, we can download a sample Datavyu spreadsheet from <https://da
 <!-- TODO(ROG/JS): How to use temporary directories and file names? -->
 
 ```{r, eval=FALSE}
-if (!dir.exists("tmp")) dir.create("tmp")
-databraryr::download_datavyu()
+datavyur::download_opf()
 ```
 
-The `databraryr::download_datavyu()` creates a long name for this file.
+The `datavyur::download_opf()` command creates a long name for this file.
 The reason is that Datavyu files do not (yet) contain (much) robust information about which video or audio file they are linked to.
 Nor do Datavyu files contain information about where the files came from on Databrary.
 So, the file name contains the Databrary-unique volume ID, the session (folder) ID, and the asset (file) ID, plus a date/time stamp to make each download unique.

@@ -13,6 +13,7 @@ Suggests:
     knitr,
     rmarkdown,
     testthat (>= 3.0.0),
+    lubridate,
     databraryr
 Config/testthat/edition: 3
 VignetteBuilder: knitr

@@ -25,3 +25,8 @@ test_that("rejects bad input parameters", {
   expect_error(extract_opf(vb = "a"))
   expect_error(extract_opf(vb = list(a=1, b=2)))
 })
+
+test_that("extract_opf returns character or NULL", {
+  expect_true("character" %in% class(extract_opf()) ||
+                is.null(extract_opf()))
+})

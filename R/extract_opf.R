@@ -1,8 +1,7 @@
 #' Extracts Elements From Datavyu coding file.
 #'
-#' @param in_dir A character string. The input directory for a 
-#' Datavyu file.
-#' @param in_fn File name for the Datavyu file.
+
+#' @param in_fn A string. The full file name for the Datavyu file.
 #' @param out_dir Output directory to save exported files.
 #' @param auto_write_over A Boolean value. If TRUE, any existing files in out_dir are overwritten.
 #' @param vb A Boolean value. If TRUE provides verbose output.
