@@ -39,5 +39,8 @@ extract_codes(
 Extract Codes From a Datavyu file.
 }
 \examples{
+\donttest{
 extract_codes()
+}
+
 }

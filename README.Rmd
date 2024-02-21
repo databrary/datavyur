@@ -32,7 +32,7 @@ pak::pak("databrary/datavyur")
 
 ## Usage
 
-```{r example}
+```{r example, eval = FALSE}
 library(datavyur)
 
 download_opf() |>

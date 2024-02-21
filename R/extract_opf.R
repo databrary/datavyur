@@ -1,13 +1,21 @@
 #' Extracts Elements From Datavyu coding file.
 #'
 
-#' @param in_fn A string. The full file name for the Datavyu file.
-#' @param out_dir Output directory to save exported files.
-#' @param auto_write_over A Boolean value. If TRUE, any existing files in out_dir are overwritten.
-#' @param vb A Boolean value. If TRUE provides verbose output.
-#' @return The output directory where the extracted files were saved.
+#' @param in_fn A character string string. The full file name for the Datavyu 
+#' file. Default is NULL.
+#' @param out_dir A character string. Output directory to save exported files.
+#' @param create_dir A logical value. Create a new directory. Default is FALSE.
+#' @param auto_write_over A logical value. If TRUE, any existing files in 
+#' out_dir are overwritten. Default is TRUE.
+#' @param vb A logical value. Provide verbose output. Default is FALSE.
+#' 
+#' @returns The output directory where the extracted files were saved.
+#' 
 #' @examples
+#' \donttest{
 #' extract_opf()
+#' }
+#' 
 #' @export
 extract_opf <- function(in_fn = NULL,
                         out_dir = dirname(in_fn),

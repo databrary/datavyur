@@ -2,33 +2,38 @@
 % Please edit documentation in R/extract_opf.R
 \name{extract_opf}
 \alias{extract_opf}
-\title{Extracts the elements from a raw (*.opf) Datavyu coding file.}
+\title{Extracts Elements From Datavyu coding file.}
 \usage{
 extract_opf(
-  in_dir = ".",
-  in_fn = list.files(in_dir, "\\\\.opf$", full.names = TRUE),
-  out_dir = in_dir,
+  in_fn = NULL,
+  out_dir = dirname(in_fn),
+  create_dir = FALSE,
   auto_write_over = TRUE,
   vb = FALSE
 )
 }
 \arguments{
-\item{in_dir}{Input directory}
+\item{in_fn}{A character string string. The full file name for the Datavyu
+file. Default is NULL.}
 
-\item{in_fn}{File name for the Datavyu file.}
+\item{out_dir}{A character string. Output directory to save exported files.}
 
-\item{out_dir}{Output directory to save exported files.}
+\item{create_dir}{A logical value. Create a new directory. Default is FALSE.}
 
-\item{auto_write_over}{A Boolean value. If TRUE, any existing files in out_dir are overwritten.}
+\item{auto_write_over}{A logical value. If TRUE, any existing files in
+out_dir are overwritten. Default is TRUE.}
 
-\item{vb}{A Boolean value. If TRUE provides verbose output.}
+\item{vb}{A logical value. Provide verbose output. Default is FALSE.}
 }
 \value{
 The output directory where the extracted files were saved.
 }
 \description{
-Extracts the elements from a raw (*.opf) Datavyu coding file.
+Extracts Elements From Datavyu coding file.
 }
 \examples{
+\donttest{
 extract_opf()
+}
+
 }

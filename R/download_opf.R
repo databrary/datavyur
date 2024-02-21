@@ -21,7 +21,7 @@
 #' download_opf() # Downloads a test Datavyu file from Databrary volume 1.
 #' }
 #' 
-#'@export
+#' @export
 download_opf <- function(session_id = 9807,
                          asset_id = 117035,
                          file_name = NULL,

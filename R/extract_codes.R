@@ -9,8 +9,12 @@
 #' @param code_vals_regex A string specifying the regular expression to extract a code value.
 #' @param code_type_regex A string specifying the regular expression for the code type.
 #' @param vb A boolean value. If TRUE, provides verbose output.
+#' 
 #' @examples
+#' \donttest{
 #' extract_codes()
+#' }
+#' 
 #' @export
 extract_codes <- function(in_dir = '.',
                           dv_fn = 'db',

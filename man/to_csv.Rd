@@ -2,7 +2,7 @@
 % Please edit documentation in R/to_csv.R
 \name{to_csv}
 \alias{to_csv}
-\title{Convert an extracted Datavyu file to CSV.}
+\title{Convert Extracted Datavyu File To CSV.}
 \usage{
 to_csv(
   dv_dir = ".",
@@ -18,29 +18,42 @@ to_csv(
 )
 }
 \arguments{
-\item{dv_dir}{Directory to extracted Datavyu file.}
+\item{dv_dir}{A character string. The directory to extract the Datavyu file.
+Default value is the current directory ".".}
 
-\item{dv_fn}{Datavyu code file. Defaults to 'db'.}
+\item{dv_fn}{A character string. The name of the Datavyu code file.
+Defaults to 'db'.}
 
-\item{out_fn}{Output file name. Default is based on dv_dir.}
+\item{out_fn}{A character string. The name of the output CSV file. Default
+'tmp.csv' in the directory specified by \code{dv_dir}.}
 
-\item{auto_write_over}{A Boolean value. If TRUE, new output file overwrites old.}
+\item{auto_write_over}{A logical value. If TRUE, new output file overwrites
+the old. Default is FALSE.}
 
-\item{code_regex}{Regular expression to extract codes from Datavyu file.}
+\item{code_regex}{A character string. A regular expression to extract codes
+from a Datavyu file.}
 
-\item{code_type_regex}{Regular expression to extract doce types from Datavyu file.}
+\item{code_type_regex}{A character string. A regular expression to extract
+code types from a Datavyu file.}
 
-\item{time_regex}{Regular expression to extract onset/offset times.}
+\item{time_regex}{A character string. A regular expression to extract
+onset/offset times from a Datavyu file.}
 
-\item{code_values_regex}{Regular expression to extract code values from Datavyu file.}
+\item{code_values_regex}{A character string. A regular expression to extract
+code values from Datavyu file.}
 
-\item{convert_times}{A Boolean value. If TRUE (default), converts the onset and offset}
+\item{convert_times}{A logical value. If TRUE (default), converts the onset
+and offset fields to lubridate-compatible dates and times. Default is TRUE.}
 
-\item{vb}{A boolean value. If TRUE, provides verbose output.}
+\item{vb}{A boolean value. If TRUE, provides verbose output. Default is
+FALSE.}
 }
 \description{
-Convert an extracted Datavyu file to CSV.
+Convert Extracted Datavyu File To CSV.
 }
 \examples{
+\donttest{
 to_csv()
+}
+
 }
