@@ -13,7 +13,7 @@ to_csv(
   code_type_regex = "([a-zA-Z]+)$",
   time_regex = "([0-9]{2}:[0-9]{2}:[0-9]{2}:[0-9]{3})",
   code_values_regex = "\\\\(([a-zA-Z ?,.'/0-9;!|~`]+)\\\\)$",
-  convert_times = TRUE,
+  convert_times = FALSE,
   vb = FALSE
 )
 }

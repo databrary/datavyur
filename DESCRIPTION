@@ -14,7 +14,8 @@ Imports:
     databraryr,
     assertthat,
     stringr,
-    magrittr
+    magrittr,
+    dplyr
 Suggests: 
     knitr,
     rmarkdown,

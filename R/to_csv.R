@@ -35,7 +35,7 @@ to_csv <- function(dv_dir = ".",
                    code_type_regex = "([a-zA-Z]+)$",
                    time_regex = "([0-9]{2}:[0-9]{2}:[0-9]{2}:[0-9]{3})",
                    code_values_regex = "\\(([a-zA-Z ?,.'/0-9;!|~`]+)\\)$",
-                   convert_times = TRUE,
+                   convert_times = FALSE,
                    vb = FALSE) {
   # Parameter checking -------------------------------------------------------------------
   assertthat::is.string(dv_dir)
@@ -101,12 +101,7 @@ to_csv <- function(dv_dir = ".",
     if (vb) message("Unable to open file ", dv_fn)
     return(NULL)
   }
-  
-  con_in <- file(paste0(dv_dir, "/", dv_fn), "r")
-  if (!con_in) {
-    stop(paste0("Unable to open file: ", dv_fn))
-  }
-  
+
   dv <- readLines(con_in)
   close(con_in)
   
