@@ -1,14 +1,14 @@
 #' Download Datavyu File from Databrary
 #'
 #' @param session_id An integer. The unique identifier for a Databrary session
-#' that contains a Datavyu file. Default is 9807.
-#' @param asset_id. An integer. The unique identifier for the Datavyu file in
+#' that contains a Datavyu file. Default value is 9807.
+#' @param asset_id An integer. The unique identifier for the Datavyu file in
 #' the Databrary session. Default is 117035.
-#' @param file_name. A string. The name of the file to be downloaded. Default 
+#' @param file_name A string. The name of the file to be downloaded. Default 
 #' is NULL. If the file name is NULL a default one is generated.
-#' @param vb. A logical value. Provide verbose information at the R console.
+#' @param vb A logical value. Provide verbose information at the R console.
 #' Default is FALSE.
-#' @param rq. An `httr2` request object. Default is NULL. This generates a new 
+#' @param rq An `httr2` request object. Default is NULL. This generates a new 
 #' default request using `databraryr::make_default_request()`. If you are 
 #' accessing Datavyu files from a volume or session accessible only to 
 #' authorized users, you should authenticate to Databrary and use the httr2 
@@ -18,7 +18,9 @@
 #'
 #' @examples
 #' \donttest{
+#' \dontrun{
 #' download_opf() # Downloads a test Datavyu file from Databrary volume 1.
+#' }
 #' }
 #' 
 #' @export
@@ -59,9 +61,9 @@ download_opf <- function(session_id = 9807,
   assertthat::assert_that(is.null(rq) |
                             ("httr2_request" %in% class(rq)))
   
-  databraryr::download_session_asset(asset_id,
-                                     session_id,
-                                     file_name,
+  databraryr::download_session_asset(asset_id = asset_id,
+                                     session_id = session_id,
+                                     file_name = file_name,
                                      vb = vb,
                                      rq = rq)
 }

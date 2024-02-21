@@ -7,7 +7,7 @@
 to_csv(
   dv_dir = NULL,
   dv_fn = "db",
-  out_fn = paste0(dv_dir, "/tmp.csv"),
+  out_fn = file.path(dv_dir, "/tmp.csv"),
   auto_write_over = FALSE,
   code_regex = "^([a-zA-Z_]+[0-9]*[a-zA-Z_]*[0-9]*)",
   code_type_regex = "([a-zA-Z]+)$",
@@ -53,7 +53,11 @@ Convert Extracted Datavyu File To CSV.
 }
 \examples{
 \donttest{
-to_csv()
+\dontrun{
+sample_dv_fn <- download_opf()
+f_path <- extract_opf(sample_dv_fn)
+to_csv(f_path)
+}
 }
 
 }

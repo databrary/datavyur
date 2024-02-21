@@ -14,18 +14,18 @@ download_opf(
 }
 \arguments{
 \item{session_id}{An integer. The unique identifier for a Databrary session
-that contains a Datavyu file. Default is 9807.}
+that contains a Datavyu file. Default value is 9807.}
 
-\item{asset_id.}{An integer. The unique identifier for the Datavyu file in
+\item{asset_id}{An integer. The unique identifier for the Datavyu file in
 the Databrary session. Default is 117035.}
 
-\item{file_name.}{A string. The name of the file to be downloaded. Default
+\item{file_name}{A string. The name of the file to be downloaded. Default
 is NULL. If the file name is NULL a default one is generated.}
 
-\item{vb.}{A logical value. Provide verbose information at the R console.
+\item{vb}{A logical value. Provide verbose information at the R console.
 Default is FALSE.}
 
-\item{rq.}{An \code{httr2} request object. Default is NULL. This generates a new
+\item{rq}{An \code{httr2} request object. Default is NULL. This generates a new
 default request using \code{databraryr::make_default_request()}. If you are
 accessing Datavyu files from a volume or session accessible only to
 authorized users, you should authenticate to Databrary and use the httr2
@@ -39,7 +39,9 @@ Download Datavyu File from Databrary
 }
 \examples{
 \donttest{
+\dontrun{
 download_opf() # Downloads a test Datavyu file from Databrary volume 1.
+}
 }
 
 }

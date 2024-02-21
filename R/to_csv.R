@@ -23,13 +23,17 @@
 #'
 #' @examples
 #' \donttest{
-#' to_csv()
+#' \dontrun{
+#' sample_dv_fn <- download_opf()
+#' f_path <- extract_opf(sample_dv_fn)
+#' to_csv(f_path)
+#' }
 #' }
 #'
 #' @export
 to_csv <- function(dv_dir = NULL,
                    dv_fn = "db",
-                   out_fn = paste0(dv_dir, "/tmp.csv"),
+                   out_fn = file.path(dv_dir, "/tmp.csv"),
                    auto_write_over = FALSE,
                    code_regex = "^([a-zA-Z_]+[0-9]*[a-zA-Z_]*[0-9]*)",
                    code_type_regex = "([a-zA-Z]+)$",
@@ -39,7 +43,6 @@ to_csv <- function(dv_dir = NULL,
                    vb = FALSE) {
   # Parameter checking -------------------------------------------------------------------
   assertthat::is.string(dv_dir)
-  assertthat::assert_that(length(dv_dir) == 1)
   assertthat::is.readable(dv_dir)
   
   assertthat::is.string(dv_fn)
@@ -95,14 +98,19 @@ to_csv <- function(dv_dir = NULL,
   
   # Write output file---------------------------------------------------------------------
   opf_files <- list.files(dv_dir, pattern = "\\.opf$")
+  if (length(opf_files) > 1) {
+    message("Multiple 'opf' files in directory ", dv_dir)
+    message("Cannot proceed.")
+    return(NULL)
+  }
   if (identical(opf_files, character(0))) {
-    message(paste0("No Datavyu file found in ", dv_dir))
-    message("Creating unique filename.")
+    if (vb) message(paste0("No Datavyu file found in ", dv_dir))
+    if (vb) message("Creating unique filename.")
     out_fn <-
-      paste0(dv_dir, "/", format(Sys.time(), "%F-%H%M-%S"), ".csv")
+      file.path(dv_dir, paste0(format(Sys.time(), "%F-%H%M-%S"), ".csv"))
   } else {
     out_fn <-
-      paste0(dv_dir, "/", tools::file_path_sans_ext(basename(opf_files)), ".csv")
+      file.path(dv_dir, paste0(tools::file_path_sans_ext(basename(opf_files)), ".csv"))
   }
   assertthat::is.writeable(out_fn)
   con_out <- file(out_fn, "w")
