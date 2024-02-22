@@ -6,6 +6,8 @@
 #' the Databrary session. Default is 117035.
 #' @param file_name A string. The name of the file to be downloaded. Default 
 #' is NULL. If the file name is NULL a default one is generated.
+#' @param auto_write_over A logical value. Overwrite existing file or directory
+#' with the same name. Default is TRUE.
 #' @param vb A logical value. Provide verbose information at the R console.
 #' Default is FALSE.
 #' @param rq An `httr2` request object. Default is NULL. This generates a new 
@@ -27,6 +29,7 @@
 download_opf <- function(session_id = 9807,
                          asset_id = 117035,
                          file_name = NULL,
+                         auto_write_over = TRUE,
                               vb = FALSE,
                               rq = NULL) {
   # Parameter checking ---------------------------------------------------------
@@ -43,17 +46,21 @@ download_opf <- function(session_id = 9807,
     file_dir <- tempdir()
     full_dir <- file.path(file_dir, session_id)
     if (!dir.exists(full_dir)) {
-      if (vb) message("Generating default directory ", full_dir)
+      if (vb) message("Generating default directory: ", full_dir)
       dir.create(file.path(full_dir))
     } else {
-      if (vb) message("Saving file to existing directory ", full_dir)
+      if (vb) message("Directory exists: ", full_dir)
+      if (auto_write_over) {
+        if (vb) message("Will overwrite.")       
+      } else {
+        if (vb) message("auto_write_over is FALSE. Exiting.")
+        return(NULL)
+      }
     }
     file_name <- file.path(full_dir, paste0(asset_id, ".opf"))
-  } else {
-    full_dir <- dirname(file_name)
   }
-  assertthat::is.string(file_name)
-  assertthat::is.string(full_dir)
+  assertthat::is.readable(dirname(file_name))
+  if (vb) message("Full file path: ", file_name)
   
   assertthat::assert_that(is.logical(vb))
   assertthat::assert_that(length(vb) == 1)

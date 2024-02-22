@@ -8,6 +8,7 @@ download_opf(
   session_id = 9807,
   asset_id = 117035,
   file_name = NULL,
+  auto_write_over = TRUE,
   vb = FALSE,
   rq = NULL
 )
@@ -21,6 +22,9 @@ the Databrary session. Default is 117035.}
 
 \item{file_name}{A string. The name of the file to be downloaded. Default
 is NULL. If the file name is NULL a default one is generated.}
+
+\item{auto_write_over}{A logical value. Overwrite existing file or directory
+with the same name. Default is TRUE.}
 
 \item{vb}{A logical value. Provide verbose information at the R console.
 Default is FALSE.}
